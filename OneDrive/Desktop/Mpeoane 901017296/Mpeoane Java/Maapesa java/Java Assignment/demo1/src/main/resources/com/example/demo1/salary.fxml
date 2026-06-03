@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo1.SalaryController"
+            prefHeight="700" prefWidth="1100">
+
+    <VBox spacing="10" AnchorPane.leftAnchor="10" styleClass="background" stylesheets="@../../../styles/style.css"  AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+        <!-- Input Section -->
+        <GridPane hgap="8" vgap="5" prefHeight="120">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="100"/>
+                <ColumnConstraints minWidth="150"/>
+                <ColumnConstraints halignment="RIGHT" minWidth="100"/>
+                <ColumnConstraints minWidth="150"/>
+            </columnConstraints>
+
+            <!-- Row 0 -->
+            <Label text="Employee:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtName" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Basic Salary:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <TextField fx:id="txtBasicSalary" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+            <!-- Row 1 -->
+            <Label text="Work Hours:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtWorkingHours" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="OT Hours:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <TextField fx:id="txtOvertimeHours" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+            <!-- Row 2 -->
+            <Label text="Month:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="comboMonth" prefWidth="150" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Deductions:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+            <TextField fx:id="txtOtherDeductions" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+        </GridPane>
+
+        <!-- Calculation Summary -->
+        <HBox spacing="20" alignment="CENTER">
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="Hourly Rate:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblHourlyRate" text="M0.00/hour"/>
+            </VBox>
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="Regular Pay:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblRegularPay" text="M0.00"/>
+            </VBox>
+            <VBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="Overtime Pay:" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblOvertimePay" text="M0.00"/>
+            </VBox>
+        </HBox>
+
+        <!-- Action Buttons -->
+        <HBox spacing="20" alignment="CENTER">
+            <Button fx:id="btnCalculate" text="Calculate" onAction="#handleCalculate"
+                    style="-fx-background-color: #0bb0f1; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Button fx:id="btnSave" text="Save" onAction="#handleSave"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <!-- Summary Section -->
+        <GridPane hgap="10" vgap="5">
+            <columnConstraints>
+                <ColumnConstraints prefWidth="120"/>
+                <ColumnConstraints prefWidth="120"/>
+                <ColumnConstraints prefWidth="120"/>
+                <ColumnConstraints prefWidth="120"/>
+            </columnConstraints>
+
+            <Label text="Gross:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Label fx:id="lblGrossSalary" text="M0.00" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Tax:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <Label fx:id="lblTax" text="M0.00" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+            <Label text="Insurance:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Label fx:id="lblInsurance" text="M0.00" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Pension:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <Label fx:id="lblPension" text="M0.00" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+            <Label text="Other Deductions:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Label fx:id="lblOtherDeductions" text="M0.00" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            <Label text="Total Deductions:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+            <Label fx:id="lblTotalDeductions" text="M0.00" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+            <Label text="Net Pay:" style="-fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Label fx:id="lblNetSalary" text="M0.00" style="-fx-font-weight: bold;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        </GridPane>
+
+        <!-- Monthly Total Label -->
+        <Label fx:id="lblMonthlyTotal" text="Monthly Total: M0.00"
+               style="-fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 5 0 3 0;"/>
+
+        <!-- Salary Records Table -->
+        <Label text="Salary Records" style="-fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 5 0 3 0;"/>
+        <TableView fx:id="salaryTable" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="colName" prefWidth="120" text="Name"/>
+                <TableColumn fx:id="colMonth" prefWidth="80" text="Month"/>
+                <TableColumn fx:id="colBasic" prefWidth="90" text="Basic"/>
+                <TableColumn fx:id="colWorkingHours" prefWidth="70" text="Hours"/>
+                <TableColumn fx:id="colOvertime" prefWidth="70" text="OT"/>
+                <TableColumn fx:id="colGross" prefWidth="90" text="Gross"/>
+                <TableColumn fx:id="colTax" prefWidth="70" text="Tax"/>
+                <TableColumn fx:id="colInsurance" prefWidth="70" text="Insurance"/>
+                <TableColumn fx:id="colPension" prefWidth="70" text="Pension"/>
+                <TableColumn fx:id="colOtherDeductions" prefWidth="100" text="Other Deductions"/>
+                <TableColumn fx:id="colTotalDeductions" prefWidth="100" text="Total Deductions"/>
+                <TableColumn fx:id="colNet" prefWidth="90" text="Net"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

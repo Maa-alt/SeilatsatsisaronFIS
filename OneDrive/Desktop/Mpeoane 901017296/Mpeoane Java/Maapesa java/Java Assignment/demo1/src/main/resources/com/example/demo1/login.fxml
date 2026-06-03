@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="450.0" prefWidth="657.0" styleClass="background" stylesheets="@../../../styles/style.css"  xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.LoginController">
+    <VBox alignment="CENTER" layoutX="410.0" layoutY="-11.0" prefWidth="300" spacing="15" styleClass="form-container">
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;" text="Payroll System Login" />
+        <TextField fx:id="usernameField" prefWidth="250" promptText="Username" />
+        <TextField fx:id="emailField" prefWidth="250" promptText="Email" /> <!-- Added email field -->
+        <PasswordField fx:id="passwordField" prefWidth="250" promptText="Password" />
+        <ComboBox fx:id="roleComboBox" prefHeight="40.0" prefWidth="299.0" promptText="Select Role" />
+        <Button onAction="#handleLogin" prefHeight="40.0" prefWidth="288.0" text="Login" />
+        <Label fx:id="errorLabel" styleClass="error-label" textFill="red" visible="false" />
+        <Hyperlink onAction="#handleGoToRegister" styleClass="hyperlink" text="Don't have an account? Register" />
+    </VBox>
+</AnchorPane>

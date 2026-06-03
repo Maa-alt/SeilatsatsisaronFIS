@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="700" prefWidth="773.0" style="-fx-background-color: #0bb0f1;" stylesheets="@../../../styles/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.PayrollReportsController">
+    <center>
+        <VBox alignment="CENTER" prefHeight="664.0" prefWidth="1030.0" spacing="20">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <Label fx:id="totalPayrollLabel" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Total Payroll: M0.00" />
+
+            <HBox alignment="CENTER" spacing="15">
+                <Button fx:id="btnExportCSV" onAction="#handleExportCSV" style="-fx-background-color: #060122;" styleClass="button-report" text="Export as CSV" />
+            </HBox>
+
+            <!-- Salary Data Table -->
+            <TableView fx:id="reportTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="150" prefWidth="600" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn fx:id="colMonth" prefWidth="300" text="Month">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="month" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colSalary" prefWidth="300" text="Salary Paid">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="formattedSalary" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+
+            <!-- Pie Chart (Full Width) -->
+            <PieChart fx:id="pieChart" prefHeight="250" prefWidth="800" title="Salary Distribution by Month" />
+
+            <!-- Horizontal Charts Container -->
+            <HBox alignment="CENTER" spacing="20">
+                <!-- Bar Chart -->
+                <BarChart fx:id="barChart" prefHeight="300" prefWidth="400" title="Monthly Salary Comparison">
+                    <xAxis>
+                        <CategoryAxis label="Month" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Amount (M)" />
+                    </yAxis>
+                </BarChart>
+
+                <!-- Line Chart -->
+                <LineChart fx:id="lineChart" prefHeight="300" prefWidth="400" title="Salary Trend Over Months">
+                    <xAxis>
+                        <CategoryAxis label="Month" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Amount (M)" />
+                    </yAxis>
+                </LineChart>
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <Button fx:id="backButton" onAction="#handleBack" style="-fx-font-size: 14px; -fx-background-color: #060122; -fx-padding: 10;" styleClass="button-report" text="Back" BorderPane.alignment="CENTER" />
+    </bottom>
+</BorderPane>

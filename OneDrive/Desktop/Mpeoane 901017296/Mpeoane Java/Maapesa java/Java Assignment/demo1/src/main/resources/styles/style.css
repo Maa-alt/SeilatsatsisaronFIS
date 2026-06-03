@@ -1,0 +1,253 @@
+/* General styling for the root pane */
+.root {
+    -fx-background-color: transparent;
+    -fx-font-family: 'Arial';
+}
+
+/* Updated styling for the form containers (login/signup) */
+.form-container {
+    -fx-background-color: Transparent;
+    -fx-background-radius: 25;
+    -fx-padding: 40;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 15, 0, 0, 0);
+    -fx-alignment: center;
+    -fx-max-width: 500px;
+    -fx-max-height: 600px;
+    -fx-min-width: 350px;
+    -fx-min-height: 400px;
+}
+
+/* Styling for labels */
+.label {
+    -fx-text-fill: rgb(248, 245, 245);
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Styling for text fields and password fields */
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1;
+    -fx-padding: 8 15;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+    -fx-prompt-text-fill: derive(-fx-control-inner-background, -30%);
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #a9a9a9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 2);
+}
+
+/* Styling for buttons */
+.button {
+    -fx-background-color: white;
+    -fx-text-fill: rgb(16, 17, 17);
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-padding: 8 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #f0f0f0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 2);
+}
+
+.button:pressed {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Styling for combo boxes */
+.combo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+/* Center alignment for the form */
+.center-alignment {
+    -fx-alignment: center;
+    -fx-spacing: 15;
+}
+
+/* Error label styling */
+.error-label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+/* 🎯 Stylish, modern Hyperlink */
+.hyperlink {
+    -fx-text-fill: white;
+    -fx-underline: false;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-opacity: 0.9;
+    -fx-padding: 5;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #ffd6d6;
+    -fx-underline: true;
+    -fx-opacity: 1.0;
+}
+
+/* Background color for Employee, Payroll Reports, Payslip, and Salary pages */
+.employee-background, .payroll-reports-background, .payslip-background, .salary-background {
+    -fx-background-color: peachpuff;
+}
+
+/* Styling for Tables */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 1);
+    -fx-font-size: 14px;
+    -fx-padding: 10;
+}
+
+/* Table Column Styling */
+.table-column {
+    -fx-text-fill: #333;
+    -fx-font-weight: bold;
+}
+
+/* Table Header */
+.table-view .column-header-background {
+    -fx-background-color: rgb(20, 20, 20);
+    -fx-text-fill: white;
+}
+
+/* Buttons in tables (Export, Generate, Print) */
+/* Modern “table-button” styling */
+.table-button {
+    /* a smooth purple-blue gradient */
+    -fx-background-color:
+      linear-gradient(
+        to bottom right,
+        #08142ee0 0%,
+        #08142ee0 100%
+      );
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+
+    /* pill-shaped buttons */
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+
+    /* nice drop shadow */
+    -fx-effect: dropshadow(
+      gaussian,
+      rgba(0, 0, 0, 0.2),
+      8, 0, 0, 2
+    );
+
+    /* comfortable padding */
+    -fx-padding: 10 25;
+}
+
+/* Hover state: reverse the gradient */
+.table-button:hover {
+    -fx-background-color:
+      linear-gradient(
+        to top left,
+        #05f786 0%,
+        #0bb0f1 100%
+      );
+}
+
+/* Pressed state: darker, more saturated */
+.table-button:pressed {
+    -fx-background-color:
+      linear-gradient(
+        to bottom right,
+        #05f786 0%,
+        #04f8f8 100%
+      );
+}
+
+
+.table-button:pressed {
+    -fx-background-color: #0bb0f1;
+}
+
+/* Stylish buttons on Reports, Payslip, and Salary pages */
+.button-report, .button-payslip, .button-salary {
+    -fx-background-color: #0bb0f1;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-padding: 10 25;
+    -fx-cursor: hand;
+}
+
+.button-report:hover, .button-payslip:hover, .button-salary:hover {
+    -fx-background-color: #04f7d6;
+}
+
+.button-report:pressed, .button-payslip:pressed, .button-salary:pressed {
+    -fx-background-color: #04f7d6;
+}
+.background {
+    -fx-background-image: url('P.jpg'); /* Adjust the filename if needed */
+    -fx-background-size: cover;
+}
+
+.form-container {
+    -fx-background-color: transparent; /* Optional: Adds a semi-transparent background to the form */
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+}
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #0bb0f1;
+    -fx-border-width: 2px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #0bb0f1;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f0f8ff;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #0bb0f1;
+    -fx-text-fill: white;
+}
+.root {
+    -fx-background-image: url("E.jpg");
+    -fx-background-size: 100% 100%; /* This makes it fit exactly to the AnchorPane */
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+/* Optional: Add semi-transparent background to your content areas */
+.vbox, .grid-pane, .hbox, .table-view {
+    -fx-background-color: transparent;
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+}
+.text-field {
+    -fx-pref-width: 180px; /* Could be overriding */
+}

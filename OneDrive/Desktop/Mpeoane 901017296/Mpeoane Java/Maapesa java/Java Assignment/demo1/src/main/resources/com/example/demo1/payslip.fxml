@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="payslipVBox" alignment="TOP_CENTER" prefHeight="492.0" prefWidth="696.0" spacing="10" style="-fx-background-color: #0bb0f1;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.PayslipController">
+    <padding>
+        <Insets bottom="10" left="20" right="20" top="20" />
+    </padding>
+
+    <!-- Input Section - Fixed overlapping issue here -->
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="180.0" prefWidth="180.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="35.0" prefHeight="35.0" />  <!-- Increased row height -->
+            <RowConstraints minHeight="35.0" prefHeight="35.0" />  <!-- Increased row height -->
+        </rowConstraints>
+
+        <Label text="Select Employee:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <ComboBox fx:id="employeeComboBox" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Employee ID:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="employeeIdField" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    </GridPane>
+
+    <!-- Rest of the code remains exactly the same -->
+    <HBox alignment="CENTER" spacing="10.0" style="-fx-padding: 10 0 10 0;">
+        <Button fx:id="generateButton" mnemonicParsing="false" onAction="#handleGeneratePayslip" style="-fx-background-color: #060122; -fx-text-fill: white;" text="Generate Payslip" />
+        <Button fx:id="printButton" disable="true" mnemonicParsing="false" onAction="#handlePrint" style="-fx-background-color: #060122; -fx-text-fill: white;" text="Print Payslip" />
+    </HBox>
+
+    <GridPane hgap="10.0" style="-fx-padding: 0 0 0 10;" vgap="8.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        </rowConstraints>
+
+        <Label text="Employee Name:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label fx:id="lblName" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Employee ID:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label fx:id="lblID" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Department:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <Label fx:id="lblDepartment" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Basic Salary:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <Label fx:id="lblBasic" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label text="Working Days Pay:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <Label fx:id="lblWorkingPay" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+        <Label text="Overtime Pay:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <Label fx:id="lblOvertimePay" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+        <Label text="Deductions:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <Label fx:id="lblDeductions" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+        <Label text="Net Salary:" style="-fx-font-weight: bold;" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+        <Label fx:id="lblNetSalary" style="-fx-font-weight: bold; -fx-font-size: 14;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+    </GridPane>
+</VBox>
