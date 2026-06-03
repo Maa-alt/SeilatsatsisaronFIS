@@ -1,5 +1,4 @@
-FROM tomcat:9.0-jdk17 
-RUN rm -rf /usr/local/tomcat/webapps/* 
-COPY dist/SeilatsatsiSaRona.war /usr/local/tomcat/webapps/SeilatsatsiSaRona.war 
+FROM openjdk:17-jdk-slim 
+COPY SeilatsatsiSaRona.war app.war 
 EXPOSE 8080 
-CMD ["catalina.sh", "run"] 
+ENTRYPOINT ["java", "-jar", "app.war"] 
